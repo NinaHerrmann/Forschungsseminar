@@ -1,0 +1,99 @@
+/**
+ * White theme for reveal.js. This is the opposite of the 'black' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+$mainColor: #222;
+$headingColor: #222;
+
+$mainFontSize: 42px;
+$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: normal;
+$headingFontWeight: 600;
+$linkColor: #2a76dd;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-dark-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #fff;
+	}
+}
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+
+.sciebo {
+	color: #2e8e43;
+}
+
+.owncloud {
+	color: #20334d;
+}
+
+.learnweb {
+	color: #01728f;
+}
+
+.Moodle {
+	color: #fa8c10;
+}
+
+.todo {
+	color: red;
+}
+
+.light {
+	color: #8b8b8b;
+}
+
+html.dim-background .slide-background {
+	opacity: 0.4 !important;
+}
+
+html.dim-background-light .slide-background {
+	opacity: 0.6 !important;
+}
+
+.reveal .caption {
+  position: fixed;
+  display: block;
+  right: 0px;
+  bottom: 0px;
+	z-index: 31;
+  font-size: 15px;
+  line-height: 1;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 5px;
+}
+
+.reveal .caption {
+  margin: 0 3px;
+}
