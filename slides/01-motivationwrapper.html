@@ -53,6 +53,24 @@ Skelette
     <font color="grey">3 </font> <font color="#4EC9B0">float\*</font> h_input = <font color="#569CD6">malloc</font>(size \* <font color="#4EC9B0">sizeof</font>(<font color="#4EC9B0">float</font>));<br>
     <font color="grey">4 </font> <font color="#D69D85">cudaMalloc</font> (&d_input, size \* <font color="#4EC9B0">sizeof</font>(<font color="#4EC9B0">float</font>));<br>
     <font color="grey">5 </font> <font color="#D69D85">cudaMemcpy</font> (&d_input, h_input \* <font color="#4EC9B0">sizeof</font>(<font color="#4EC9B0">float</font>));<br>
+    #config PLATFORM CPU_MPMD GPU CUDA
+    #config PROCESSES 4
+    #config CORES 24
+    #config GPUS 2
+    #config MODE release
+
+    vector<int, 4, dist> m = {1};
+    vector<int, 4, dist> n = {41};
+
+    int addVec(int index, int value){
+    	return value + n[index];
+    }
+
+    main{
+    	mkt::roi_start();
+    	m.mapIndexInPlace(func());
+    	mkt::roi_end();
+    }
   </div>
 </div>
 
