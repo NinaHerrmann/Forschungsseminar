@@ -4,7 +4,6 @@
     Results</font></div></div>
 </div>
 <section>-->
-
 <h2 style="float:left"> Modell-getriebene Entwicklung <span style="font-size:60%;">von parallelen <br> Programmen und Algorithmen</span></h2>
 <img alt="MDSD-Process" style="float:left;width:90%;padding-top:0%;top:10px;left:10px;" data-src="images/FS_pictures/Modellgetrieben-1.png">
 <ul style="list-style: none;">
@@ -13,64 +12,159 @@
 
 ---
 
-<h2><span style="font-size:60%;">Modell-getriebene Entwicklung von</span> <br><span>parallelen Programmen und Algorithmen</span></h2><br>
-<div style="font-weight: bold;">
-  <div style="float:left;width:50%;padding-top:2%;font-size:120%;">
-    <ul style="list-style: none;">
-      <li><h4 style="color:#a20101;text-align:left;padding:20px 0 20px 0;"> &#10006; Fachkenntnisse notwendig</h4></li>
-      <li><h4 style="color:#a20101;text-align:left;padding:20px 0 20px 0;">&#10006; Entwicklung zeitaufwendig</h4></li>
-      <li><h4 style="color:#a20101;text-align:left;padding:20px 0 20px 0;">&#10006; Program zugeschnitten auf Hardware</h4></li>
-    </ul>
-  </div>
-  <div style="float:left;width:50%;padding-top:2%;font-size:120%;">
-    <ul style="list-style: none;">
-      <li><h4 style="color:green;text-align:left;padding:20px 0 20px 0;"> &#10004; <b>Schnellere Programme</b></h4></li>
-      <li><h4 style="color:green;text-align:left;padding:20px 0 20px 0;"> &#10004; Maximale Nutzung der Hardware</h4></li>
-    </ul>
-  </div>
-</div>
+<h2><span style="font-size:60%;">Modell-getriebene Entwicklung von</span> <br><span>parallelen Programmen und Algorithmen</span></h2>
+<ul style="font-weight: bold;float:left;font-size:100%;">
+  <li><h4 style="text-align:left;">Schnelle Programme</h4></li>
+  <ul style="font-size:30px">
+    <li>Wettervorhersage</li>
+    <li>Astrophysik</li>
+  </ul>
+  <li><h4 style="text-align:left;padding-top:2%;"> Aufwendig zu programmieren </h4></li>
+  <li><h4 style="text-align:left;padding:20px 0 20px 0;">Berücksichtigung einzelner Hardware Komponenten</h4></li>
+</ul>
+
 
 ---
 
 <h2>Modell-getriebene Entwicklung von<br>parallelen Programmen und Algorithmen</h2><br>
-<div style="font-weight: bold;">
-  <div style="float:left;width:50%;padding-top:2%;font-size:120%;">
-    <ul style="list-style: none;">
-      <li><h4 style="color:#a20101;text-align:left;padding:20px 0 20px 0;"> &#10006; Fachkenntnisse notwendig</h4></li>
-      <li><h4 style="color:#a20101;text-align:left;padding:20px 0 20px 0;"> &#10006; Entwicklung zeitaufwendig</h4></li>
-      <li><h4 style="color:#a20101;text-align:left;padding:20px 0 20px 0;">&#10006; Program zugeschnitten auf Hardware</h4></li>
-    </ul>
-  </div>
-  <div style="float:left;width:50%;padding-top:2%;color:green;text-align:left;padding:20px 0 20px 0;">
-      <div style="font-size:120%;padding-top:50px"><span style="font-size:150%;padding-top:30px">&#8594;</span> <span style="padding-top:20px">Modell abstrahiert von Details</span></div>
-      <div style="font-size:120%;padding-top:50px"><span style="font-size:150%">&#8594;</span> Modell für verschiedene Hardware generierbar</div>
-  </div>
-
+<div style="float:left;width:50%;padding-top:2%;">
+	<h2 style="text-transform: capitalize;color:black;text-align:left;">Low-Level</h2>
+	<ul style="list-style: none;">
+    <div style="font-weight: bold;">
+    <li><h5 style="color:green;text-align:left;padding:20px 0 20px 0;"> &#10004; Detaillierte Optimierungen</h5></li>
+  	<li><h5 style="color:#a20101;text-align:left;padding:20px 0 20px 0;"> &#10006; Expertenwissen notwendig</h5></li>
+    <li><h5 style="color:#a20101;text-align:left;padding:20px 0 20px 0;">&#10006; Entwicklung dauert lange</h5></li>
+    <li><h5 style="color:#a20101;text-align:left;padding:20px 0 20px 0;">&#10006; Program auf Hardware zugeschnitten</h5></li></div>
+  </ul>
+  <hr>
+</div>
+<div style="float:right;width:45%;margin-left:3pt;padding-top:2%;">
+  <h2 style="text-transform: capitalize;color:black;text-align:left;">Model getrieben</h2>
+  <ul style="list-style: none;">
+    <div style="font-weight: bold;">
+    <li><h5 style=";color:green;text-align:left;padding:20px 0 20px 0;"> &#10004; Nutzbarkeit</h5>
+  	<li><h5 style="color:green;text-align:left;padding:20px 0 20px 0;"> &#10004; Wartbarkeit</h5>
+  	<li><h5 style="color:green;text-align:left;padding:20px 0 20px 0;"> &#10004; Unterschiedliche Hardware</h5>
+  	<li><h5 style="color:#cb9f01;text-align:left;padding:20px 0 20px 0;">? Performanz</h5></li></div>
+  </ul>
+  <hr>
 </div>
 
 ---
 
-<h2>Modell-getriebene Entwicklung von parallelen Programmen und Algorithmen</h2>
+<h2>Musket</h2>
+
+<div class="" data-fragment-index="1">
+  <div style="float:left;padding-top:2%;">
+     <ul style="list-style:none">
+       <li> 1. Konfigurationen </li>
+       <ul>
+         <li>Hardware spezifizieren </li>
+       </ul>
+       <li> 2. Datenstrukturen </li>
+       <ul>
+         <li>Arrays, Matrixen und Structs </li>
+       </ul>
+       <li> 3. Nutzer Funktionen </li>
+       <ul>
+         <li>In Skeletten verwendet </li>
+       </ul>
+       <li> 4. Main Funktion </li>
+       <ul>
+         <li>Logischer Befehlsablauf des Programmes </li>
+       </ul>
+     </ul>
+  </div>
+</div>
+
+---
+
+<h2>Musket</h2>
 
 <div style="font-size:120%;">
-Beispiel: Datenstrukturen</div>
+Konfigurationen<br>
+</div>
 <div class="" data-fragment-index="1">
-  <div style="float:left;width:40%;padding-top:2%;font-size:120%;">
-    Musket <br>
-    <code><font color="grey">1 </font> <font color="#D69D85">array</font><<font color="#4EC9B0">float</font>, 42, <font color="#D69D85">dist</font>> input;<font color="#4EC9B0"></font></code><br>
+  <div style="float:left;width:40%;padding-top:2%;font-size:120%;"><br><br>
+     <ul>
+       <li> Hardware Spezifikation </li>
+       <li style="padding-top:5%;"> Generiert mehrere Programme </li>
+
+     </ul>
   </div>
   <div style="float:left;width:60%;padding-top:2%;font-size:120%;">
+    <code><br><font color="grey">1 </font> <font color="#D69D85"> #config</font> <font color="#569CD6">PLATFORM</font> CPU_MPMD GPU CUDA;<br>
+      <font color="grey">1 </font> <font color="#D69D85"> #config</font> <font color="#569CD6">PROCESSES</font> 4 <br>
+      <font color="grey">1 </font> <font color="#D69D85"> #config</font> <font color="#569CD6">CORES</font> 24 <br>
+      <font color="grey">1 </font> <font color="#D69D85"> #config</font> <font color="#569CD6">GPUS</font> 2 <br>
+      <font color="grey">1 </font> <font color="#D69D85"> #config</font> <font color="#569CD6">MODE</font> release <br>
+  </div>
+</div>
+
+
+---
+
+<h2>Musket</h2>
+
+<div style="font-size:120%;">
+Datenstrukturen<br>
+</div>
+  <div  style="float:left;width:40%;padding-top:2%;font-size:120%;">
+    Musket <br>
+    <code><font color="grey"></font> <font color="#D69D85">array</font><<font color="#4EC9B0">float</font>, 42, <font color="#D69D85">dist</font>> input;<font color="#4EC9B0"></font></code><br>
+    <ul>
+      <li>Array, Struct oder Matrix</li>
+      <li>Datentyp</li>
+      <li>Gr;sse</li>
+      <li>Verteilung</li>
+      <li>Namen</li>
+      <li>Optional: Initialisierungswerte</li>
+  </div>
+  <div class="fragment" data-fragment-index="2" style="float:left;width:60%;padding-top:2%;font-size:120%;">
     CUDA<code><br><font color="grey">1 </font> <font color="#4EC9B0">int</font> size = 42;<br>
     <font color="grey">2 </font> <font color="#4EC9B0">float\*</font> d_input;<br>
     <font color="grey">3 </font> <font color="#4EC9B0">float\*</font> h_input = <font color="#569CD6">malloc</font>(size \* <font color="#D69D85">sizeof</font>(<font color="#4EC9B0">float</font>));<br>
     <font color="grey">4 </font> <font color="#569CD6">cudaMalloc</font> (&d_input, size \* <font color="#D69D85">sizeof</font>(<font color="#4EC9B0">float</font>));<br>
     <font color="grey">5 </font> <font color="#569CD6">cudaMemcpy</font> (&d_input, h_input \* <font color="#D69D85">sizeof</font>(<font color="#4EC9B0">float</font>));<br></code>
   </div>
-</div>
 
 ---
 
-<h2>Modell-getriebene Entwicklung von parallelen Programmen und Algorithmen</h2>
+<h2>Musket</h2>
+
+<div style="font-size:120%;">
+Nutzer Funktionen<br>
+</div>
+  <div  style="float:left;width:40%;padding-top:2%;font-size:120%;">
+      <li>Array, Struct oder Matrix</li>
+  </div>
+  <div style="float:left;width:60%;padding-top:2%;font-size:120%;">
+    <code><font color="grey"> </font> <font color="#4EC9B0">double</font> dotProduct(<font color="#4EC9B0">int</font> i, <font color="#4EC9B0">int</font> j,<font color="#4EC9B0">double</font> Cij){<br>
+    <font color="grey"> </font> &nbsp; &nbsp; for (<font color="#4EC9B0">int</font> k, k = 0; k < cs .columnsLocal (); k++) {<br>
+  		&nbsp; &nbsp; &nbsp; &nbsp; Cij += as[[i,k]] * bs[[k,j]]; };}<br>
+    &nbsp; &nbsp;return Cij;}<br>
+  }</code>
+
+  </div>
+
+---
+
+<h2>Musket</h2>
+
+<div style="font-size:120%;">
+Main Funktion<br>
+</div>
+  <div  style="float:left;width:40%;padding-top:2%;font-size:120%;">
+      <li>Array, Struct oder Matrix</li>
+  </div>
+  <div style="float:left;width:60%;padding-top:2%;font-size:120%;">
+    <code><font color="grey"> </font> <font color="#4EC9B0">int</font> initIndex(<font color="#4EC9B0">int</font> index, <font color="#4EC9B0">float</font> value){<br>
+    <font color="grey"> </font> &nbsp; &nbsp; return index;}</code>
+  </div>
+
+---
+
+<h2>Musket</h2>
 
 <div style="font-size:120%;">
 Algorithmische Skelette in Musket</div>
@@ -141,67 +235,7 @@ Algorithmische Skelette in Musket</div>
         </div>
       </div>
     </div>
-    #config PLATFORM CPU_MPMD GPU CUDA
-    #config PROCESSES 4
-    #config CORES 24
-    #config GPUS 2
-    #config MODE release
 
-    vector<int, 4, dist> m = {1};
-    array<int, 4, dist> n = {41};
-
-    int addVec(int index, int value){
-    	return value + n[index];
-    }
-
-    main{
-    	mkt::roi_start();
-    	m.mapIndexInPlace(func());
-    	mkt::roi_end();
-    }
-</div>
-
----
-
-<div style="float:left;width:50%;padding-top:2%;">
-	<h2 style="text-transform: capitalize;color:black;text-align:left;"> Low-Level-Approach</h2>
-	<ul style="list-style: none;">
-    <li><h5 style="color:green;text-align:left;font-weight:normal;padding:20px 0 20px 0;"> &#10004; Fine-grained optimization</h5></li>
-  	<li><h5 style="color:#a20101;text-align:left;font-weight:normal;padding:20px 0 20px 0;"> &#10006; Expertise required</h5></li>
-    <li><h5 style="color:#a20101;text-align:left;font-weight:normal;padding:20px 0 20px 0;">&#10006; High implementation effort</h5></li>
-    <li><h5 style="color:#a20101;text-align:left;font-weight:normal;padding:20px 0 20px 0;">&#10006; Adjustments necessary for changing hardware</h5></li>
-  </ul>
-  <hr>
-</div>
-<div style="float:right;width:45%;margin-left:3pt;padding-top:2%;">
-  <h2 style="text-transform: capitalize;color:black;text-align:left;">  High-Level-Approach</h2>
-  <ul style="list-style: none;">
-    <li><h5 style=";color:green;text-align:left;font-weight:normal;padding:20px 0 20px 0;"> &#10004; Usability</h5>
-  	<li><h5 style="color:green;text-align:left;font-weight:normal;padding:20px 0 20px 0;"> &#10004; Maintainability</h5>
-  	<li><h5 style="color:green;text-align:left;font-weight:normal;padding:20px 0 20px 0;"> &#10004; Transferability</h5>
-  	<li><h5 style="color:#cb9f01;text-align:left;font-weight:normal;padding:20px 0 20px 0;">? Performance losses</h5></li>
-  </ul>
-  <hr>
-</div>
-<div class="fragment" data-fragment-index="1">
-  <div style="float:left;width:50%;padding-top:2%;">
-    <div class="fragment" data-fragment-index="1">
-      <div style="text-align:left;background-color:black; color:white;font-family: Andale Mono,AndaleMono,monospace;font-size: 20pt;padding-left:5pt;padding-top:3pt;border-radius: 5px;">
-      	<font color="grey">1 </font> <font color="#4EC9B0">int</font> size = 42;<br>
-      	<font color="grey">2 </font> <font color="#4EC9B0">float\*</font> d_input;<br>
-      	<font color="grey">3 </font> <font color="#4EC9B0">float\*</font> h_input = <font color="#569CD6">malloc</font>(size \* <font color="#4EC9B0">sizeof</font>(<font color="#4EC9B0">float</font>));<br>
-      	<font color="grey">4 </font> <font color="#D69D85">cudaMalloc</font> (&d_input, size \* <font color="#4EC9B0">sizeof</font>(<font color="#4EC9B0">float</font>));<br>
-      	<font color="grey">5 </font> <font color="#D69D85">cudaMemcpy</font> (&d_input, h_input \* <font color="#4EC9B0">sizeof</font>(<font color="#4EC9B0">float</font>));<br>
-      </div>
-     </div>
-   </div>
-  <div style="float:right;width:45%;margin-left:3pt;padding-top:2%;">
-  	<div class="fragment" data-fragment-index="1">
-  		<div style="text-align:left;background-color:black; color:white;font-family: Andale Mono,AndaleMono,monospace;font-size: 20pt;padding-left:5pt;padding-top:3pt;border-radius: 5px;">
-   			<font color="grey">1</font> <font color="#569CD6">array</font>&lt;<font color="#4EC9B0">float</font>,42,dist&gt; input;
-  			</div>
-  	</div>
-  </div>
 </div>
 
 ---

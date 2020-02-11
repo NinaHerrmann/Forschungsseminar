@@ -43,6 +43,7 @@
 	<body>
 		</div>
 		<div class="reveal">
+			<header style="position: absolute;top: 50px; left: 100px; z-index:500; font-size:100px;background-color: rgba(0,0,0,0.5)"></header>
 			<div class="slides">
 				<span data-markdown="slides/00-introwrapper.html"></span>
 				<div data-markdown="slides/01-motivationwrapper.html"></div>
@@ -122,6 +123,56 @@
 				]
 			});
 		</script>
+		<style type="text/css">
+    /* 1. Style header/footer <div> so they are positioned as desired. */
+    #header-left {
+        position: absolute;
+        top: 0%;
+				margin: auto;
+				width: 100%;
+				text-align: center;
+				margin-top: 20px;
+				font-size: 30px;
+    }
+    #header-right {
+        position: absolute;
+        top: 0%;
+        right: 0%;
+    }
+    #footer-left {
+        position: absolute;
+        bottom: 0%;
+        left: 0%;
+				width: 100%;
+				text-align: center;
+				margin-bottom: 20px;
+				font-size: 30px;
+    }
+</style>
 
+<!-- 2. Create hidden header/footer <div> -->
+<div id="hidden" style="display:none;">
+    <div id="header">
+        <div id="footer-left"><span id="header-motivation">Motivation</span> &nbsp;&nbsp;&nbsp; <span id="header-motivation">Musket</span>  &nbsp;&nbsp;&nbsp; <span id="header-motivation">Features</span> </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+    // 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
+    var header = $('#header').html();
+    if ( window.location.search.match( /print-pdf/gi ) ) {
+        Reveal.addEventListener( 'ready', function( event ) {
+            $('.slide-background').append(header);
+        });
+    }
+    else {
+			if(!document.getElementById('fakediv')){
+        $('div.reveal').append(header);
+			} else {
+			//	$('div.reveal').append(header);
+			}
+   }
+</script>
 	</body>
 </html>

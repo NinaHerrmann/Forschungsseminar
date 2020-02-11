@@ -355,6 +355,13 @@
 
 	}
 
+
+	/*function addHeader() {
+		var header = $('#header').html();
+    //if(!document.getElementById('fakediv')){
+        $('div.reveal').append(header);
+    //}
+	}*/
     /**
      * Loads the dependencies of reveal.js. Dependencies are
      * defined via the configuration option 'dependencies'
@@ -1426,7 +1433,7 @@
 	 * target element.
 	 *
 	 * remaining height = [ configured parent height ] - [ current parent height ]
-	 * 
+	 *
 	 * @param {HTMLElement} element
 	 * @param {number} [height]
 	 */
@@ -3900,7 +3907,7 @@
 			// If there are media elements with data-autoplay,
 			// automatically set the autoSlide duration to the
 			// length of that media. Not applicable if the slide
-			// is divided up into fragments. 
+			// is divided up into fragments.
 			// playbackRate is accounted for in the duration.
 			if( currentSlide.querySelectorAll( '.fragment' ).length === 0 ) {
 				toArray( currentSlide.querySelectorAll( 'video, audio' ) ).forEach( function( el ) {
