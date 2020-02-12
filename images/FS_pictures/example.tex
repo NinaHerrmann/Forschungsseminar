@@ -1,0 +1,76 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage[europeanresistors,americaninductors]{circuitikz}
+\usetikzlibrary{chains}
+\usepackage{amssymb}
+\usepackage{rotating}
+\newcommand*{\field}[1]{\mathbb{#1}}
+\renewcommand*{\familydefault}{\sfdefault}
+\begin{document}
+	\begin{sideways}
+		\begin{turn}{270}
+			\def\firstwidth{4cm}
+			\begin{tikzpicture}[
+			start chain=going right,
+			box/.style={
+				on chain,join,draw,
+				minimum height=2cm,
+				text centered,
+				minimum width=\firstwidth,
+			},
+			every join/.style={ultra thick, ->},
+			node distance=5mm
+			]
+			
+			\node [on chain] {Daten}; % Chain starts here
+			
+			\node [box,xshift=1.5cm,label=above:Typumwandlung, text width=3.9\firstwidth] (rec) {
+				double precision $\rightarrow$ 32-bit floating point 
+			};
+			
+			\node [on chain,join,draw, 
+			text width=3.9\firstwidth,
+			minimum size=width=3.9\firstwidth,
+			minimum height=2cm,
+			label=above:Filter mit endlicher Impulsantwort,
+			] (ic) {
+				% links unten recht obentrim = 50mm 165mm 10mm 20mm,
+				$y[n] = \sum_{i=0}^N b_{i} \cdot x[n-i]$
+			};
+			
+			\node [box,label=above:Fast Fourier Transformation, text width=3.9\firstwidth, minimum height=2cm] (inv) {
+				$\hat{a}_{k} = \sum_{j=0}^{N-1} e^{-2\pi i\cdot\frac{jk}{N}}\cdot a_{j}$ \newline
+				
+				$k=0,...,N-1$
+			};
+			
+			\node [on chain,join,xshift=10mm, text width=1.5cm]{kontinuierliches \newline Frequenzspektrum};
+			% Chain ends here
+			
+			% CU box
+			\node [
+			rectangle,draw,
+			below=5mm of ic,
+			minimum width=15cm,
+			minimum height=1cm,
+			] (cu) {\textbf{GPU Memory}};
+			
+			% PU box
+			\node [
+			rectangle,draw,
+			above=2mm of cu,
+			minimum width=15cm,
+			minimum height=3.2cm
+			] (pu) {};
+			
+			% Connections between CU and PU
+			\draw[<->] (rec.south) -- ++(0,-5mm);
+			\draw[<->] (cu.north) to (ic.south);
+			\draw[<->] (inv.south) -- ++(0,-5mm);
+			%% Dummy node so the pictures does not get to small.
+			\node[] at (0,-3)(D){};
+			\node[] at (20.5,-3)(T){};
+			\end{tikzpicture}
+		\end{turn}
+	\end{sideways}
+\end{document}

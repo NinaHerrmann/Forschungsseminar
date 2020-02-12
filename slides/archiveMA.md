@@ -1,9 +1,4 @@
-<!--<div id="header">
-    <div id="header-right"><div style="float:right;width:100%;text-align:right;"><font color="grey" style="font-size:x-large;">Motivation<br>
-    Processing Steps<br>
-    <font color="#852339"><b>Results</b></font></font></div></div>
-</div>
-<section>-->
+
 <h2 style="text-transform: capitalize;">Test Settings</h2>
 <div align="left" style="position: relative;float:left;width:55%;">
     <ul style="line-height:150%">
