@@ -1,0 +1,64 @@
+<!--<div id="header">
+    <div id="header-right"><div style="float:right;width:100%;text-align:right;"><font color="grey" style="font-size:x-large;">Motivation<br>
+    <font color="#852339"><b>Processing Steps</b></font><br>
+    Results</font></div></div>
+</div>
+<section>-->
+
+
+<h2 style="float:left"> Beispielhafte Enwicklung Meta Heuristiken: ACO</h2>
+<div style="float:left;width:30%;font-size:100%;padding-right:5%;">
+  <ol style="margin-top: 5px;"><li>Calculate distance between all cities (l. 2)</li>
+    <li style="margin-top: 20px;">Find the x nearest cities (l. 3)</li>
+    <li style="margin-top: 20px;">Let each ants calculate one route (l. 6)</li>
+    <li style="margin-top: 20px;">From all routes save the shortest (l. 7)</li>
+    <li style="margin-top: 20px;">Update the pheromone accordingly (l. 9+10)</li>
+    </ol>
+</div>
+<div style="float:left;width:65%;font-size:100%;">
+  <p style="font-size:120%;background-color:rgba(0, 0, 0, 0.04);font-size:100%;width:92%;margin-top:-30px,margin-left:3%">
+
+  <code style="background-color:initial"><font color="grey" style="margin-left:-15px">1 </font> <font color="#D69D85">main</font> {<br>
+<font color="grey" >2 </font> &nbsp; &nbsp;mkt::<font color="#569CD6">roi_start</font>();<br>
+<font color="grey" >3 </font> &nbsp; &nbsp;<font color="#4EC9B0">distance</font>.<font color="#569CD6">mapIndexInPlace</font>(calculate_distance());<br>
+<font color="grey" >4 </font> &nbsp; &nbsp;<font color="#4EC9B0">city</font>.<font color="#569CD6">mapIndex</font>(calculate_iroulette());<br>
+<font color="grey" >5 </font> 	&nbsp; &nbsp;for (<font color="#4EC9B0">int</font> i = 0; i < iterations; ++i) {<br>
+    <font color="grey" >6 </font> &nbsp; &nbsp;&nbsp; &nbsp;<font color="#4EC9B0">antss</font>.<font color="#569CD6">mapIndex</font>(route_kernel());<br>
+    <font color="grey" >7 </font> &nbsp; &nbsp;&nbsp; &nbsp;bestroute = <font color="#4EC9B0">d_routes_distance</font>.<font color="#569CD6">reduce</font>(min);<br>
+    <font color="grey" >8 </font> &nbsp; &nbsp;&nbsp; &nbsp;<font color="#4EC9B0">antss</font>.<font color="#569CD6">mapIndex</font>(update_best_sequence(bestroute));<br>
+    <font color="grey" >9 </font> &nbsp; &nbsp;&nbsp; &nbsp;<font color="#4EC9B0">antss</font>.<font color="#569CD6">mapIndex</font>(update_delta_phero());<br>
+    <font color="grey" >10</font> &nbsp; &nbsp;&nbsp;&nbsp;<font color="#4EC9B0">city</font>.<font color="#569CD6">mapIndex</font>(update_phero());<br>
+<font color="grey" >11</font> &nbsp; &nbsp;}<br>
+<font color="grey" >12</font> &nbsp; &nbsp;mkt::<font color="#569CD6">print</font>(distance);<br>
+<font color="grey" >13</font> &nbsp; &nbsp;mkt::<font color="#569CD6">roi_end</font>();<br>
+<font color="grey" >14</font> }</code>
+</p></div>
+
+---
+
+<h2>Fehlende Funktionen</h2>
+<div style="float:left;width:30%;font-size:100%;padding-right:5%;">
+  <ul style="list-style: none;"><li style="margin-top: 30px;"><b>Reduce Skelett ohne Index </b><br>&rarr; Neue Implementierung des Reduce Skelettes?</li>
+    <li style="margin-top: 30px;"><b>Thread Anzahl ggf. unmöglich </b><br>&rarr; Automatische Checks?</li>
+    <li style="margin-top: 30px;"><b>Künstliche Datenstrukturen (z.B. antss)</b><br>&rarr; Optionaler Parameter?</li>
+    </ul>
+</div>
+
+  <div style="float:left;width:65%;font-size:100%;">
+    <p style="font-size:120%;background-color:rgba(0, 0, 0, 0.04);font-size:100%;width:92%;margin-top:-30px,margin-left:3%">
+
+    <code style="background-color:initial"><font color="grey" style="margin-left:-15px">1 </font> <font color="#D69D85">main</font> {<br>
+  <font color="grey" >2 </font> &nbsp; &nbsp;mkt::<font color="#569CD6">roi_start</font>();<br>
+  <font color="grey" >3 </font> &nbsp; &nbsp;<font color="#4EC9B0">distance</font>.<font color="#569CD6">mapIndexInPlace</font>(calculate_distance());<br>
+  <font color="grey" >4 </font> &nbsp; &nbsp;<font color="#4EC9B0">city</font>.<font color="#569CD6">mapIndex</font>(calculate_iroulette());<br>
+  <font color="grey" >5 </font> 	&nbsp; &nbsp;for (<font color="#4EC9B0">int</font> i = 0; i < iterations; ++i) {<br>
+      <font color="grey" >6 </font> &nbsp; &nbsp;&nbsp; &nbsp;<font color="#4EC9B0">antss</font>.<font color="#569CD6">mapIndex</font>(route_kernel());<br>
+      <font color="grey" >7 </font> &nbsp; &nbsp;&nbsp; &nbsp;bestroute = <font color="#4EC9B0">d_routes_distance</font>.<font color="#569CD6">reduce</font>(min);<br>
+      <font color="grey" >8 </font> &nbsp; &nbsp;&nbsp; &nbsp;<font color="#4EC9B0">antss</font>.<font color="#569CD6">mapIndex</font>(update_best_sequence(bestroute));<br>
+      <font color="grey" >9 </font> &nbsp; &nbsp;&nbsp; &nbsp;<font color="#4EC9B0">antss</font>.<font color="#569CD6">mapIndex</font>(update_delta_phero());<br>
+      <font color="grey" >10</font> &nbsp; &nbsp;&nbsp;&nbsp;<font color="#4EC9B0">city</font>.<font color="#569CD6">mapIndex</font>(update_phero());<br>
+  <font color="grey" >11</font> &nbsp; &nbsp;}<br>
+  <font color="grey" >12</font> &nbsp; &nbsp;mkt::<font color="#569CD6">print</font>(distance);<br>
+  <font color="grey" >13</font> &nbsp; &nbsp;mkt::<font color="#569CD6">roi_end</font>();<br>
+  <font color="grey" >14</font> }</code>
+  </p></div>
