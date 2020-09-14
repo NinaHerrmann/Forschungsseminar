@@ -6,13 +6,14 @@
 <section>-->
 
 
-<h2 style="float:left"> Beispielhafte Enwicklung Meta Heuristiken: ACO</h2>
-<div style="float:left;width:30%;font-size:100%;padding-right:5%;">
-  <ol style="margin-top: 5px;"><li>Calculate distance between all cities (l. 2)</li>
-    <li style="margin-top: 20px;">Find the x nearest cities (l. 3)</li>
-    <li style="margin-top: 20px;">Let each ants calculate one route (l. 6)</li>
-    <li style="margin-top: 20px;">From all routes save the shortest (l. 7)</li>
-    <li style="margin-top: 20px;">Update the pheromone accordingly (l. 9+10)</li>
+<h2 style="float:left"> Beispielhafte Enwicklung Metaheuristiken: ACO</h2>
+<div style="float:left;width:30%;font-size:100%;padding-right:5%;padding-top:5%;">
+  Berechne
+  <ol style="margin-top: 5px;"><li>Distanz zwischen Städten (l. 2)</li>
+    <li class="fragment" style="margin-top: 20px;">Die x nächsten Städte (l. 3)</li>
+    <li class="fragment" style="margin-top: 20px;">Eine Route pro Ameise (l. 6)</li>
+    <li class="fragment" style="margin-top: 20px;">Kürzeste Route (l. 7)</li>
+    <li class="fragment" style="margin-top: 20px;">Neue Pheromon Werte <br>(l. 9+10)</li>
     </ol>
 </div>
 <div style="float:left;width:65%;font-size:100%;">
@@ -37,10 +38,10 @@
 ---
 
 <h2>Fehlende Funktionen</h2>
-<div style="float:left;width:30%;font-size:100%;padding-right:5%;">
-  <ul style="list-style: none;"><li style="margin-top: 30px;"><b>Reduce Skelett ohne Index </b><br>&rarr; Neue Implementierung des Reduce Skelettes?</li>
-    <li style="margin-top: 30px;"><b>Thread Anzahl ggf. unmöglich </b><br>&rarr; Automatische Checks?</li>
-    <li style="margin-top: 30px;"><b>Künstliche Datenstrukturen (z.B. antss)</b><br>&rarr; Optionaler Parameter?</li>
+<div style="float:left;width:30%;font-size:100%;padding-right:5%;padding-top:5%;">
+  <ul style="list-style: none;"><li class="fragment" style="margin-top: 30px;"><b><code>reduce</code>  Skelett ohne Index </b><br>&rarr; Neue Implementierung des <code>reduce</code> Skelettes?</li>
+    <li class="fragment" style="margin-top: 30px;"><b>Thread Anzahl ggf. unmöglich </b><br>&rarr; Automatische Checks?</li>
+    <li class="fragment" style="margin-top: 30px;"><b>Künstliche Datenstrukturen (z.B. antss)</b><br>&rarr; Optionaler Parameter?</li>
     </ul>
 </div>
 
