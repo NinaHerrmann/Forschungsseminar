@@ -38,73 +38,127 @@ Gleichzeitige Nutzung von CPU und GPU<br>
 <div style="font-size:120%;">
 Gleichzeitige Nutzung von CPU und GPU<br>
 </div>
-  <div  style="float:left;padding-top:2%;width:65%;">
-    <ul>
-      <li style="padding-top:2%;">Programmierer legt Anteile fest</li>
-      <li style="padding-top:2%;">Berechnungen werden dementsprechend zugewiesen</li>
-    </ul><br>
-    </div>
-    <div style="width:30%;float:right;padding-left:2%">
-    <p style="background-color:rgba(0, 0, 0, 0.04);width:100%; font-size:100%;">
-    <code style="background-color:initial"><font style="margin-left:-5px"><font color="#D69D85">msl</font>::<font color="#4EC9B0">setNumGpus</font>(4);<font color="#4EC9B0"></font><br>
-    <font style="margin-left:10px"><font color="#D69D85">msl</font>::<font color="#4EC9B0">setNumThreads</font>(2);<font color="#4EC9B0"></font><br>
-    <font style="margin-left:10px"> <font color="#D69D85">msl</font>::<font color="#4EC9B0">cpu_fraction</font>(0.25);<font color="#4EC9B0"></font>
-  </code></p>
-  </div><br>
   <div  style="float:left;padding-top:2%;width:45%;">
-    <hr style="color:gray;width:100%;">
   <h3>  Matrix </h3>
     <ul>
       <li style="padding-top:2%;">Aufteilung in Blöcken? </li>
       <li style="padding-top:2%;">Reihen aufteilen?</li>
       <li style="padding-top:2%;">Zeilen aufteilen?</li>
 </ul>
-    </div>
-    <div class="fragment" data-fragment-index="2" style="float:left;padding-top:2%;width:40%">
-      <p style="background-color:rgba(0, 0, 0, 0.04);width:100%; font-size:100%;"><font color="grey" style="margin-left:2%;"></font> <font color="#D69D85">msl</font>::<font color="#D69D85">DMatrix</font><<font color="#4EC9B0">double</font>> a(16, 16, <font style="font-weight: bold;font-size: 120%;">4</font>, <font style="font-weight: bold;font-size: 120%;">4</font>, 0.1);<font color="#4EC9B0"></font></p>
-    </div>
-    <div class="fragment" data-fragment-index="2" style="float:left;width:55%">
-<ul>
-<li>Programmierer definiert Größe einer "Einheit"</li>
-<li>Fehler wenn sich die Einheiten nicht gemäß der <code>cpu_fraction</code> aufteilen lassen</li>
-</ul>
-    </div><br>
+</div>
+<div class="" style="float:left;width:45%;">
+  <img alt="distribution" style="width:100%;padding-top:0px;" border="5" data-src="images/distribution.png">
+</div>
+
+---
+
+<h2>Parallele Programme für heterogene Systeme</h2>
+
+<div style="font-size:120%;">
+Gleichzeitige Nutzung von CPU und GPU<br>
+</div>
+  <div style="float:left;padding-top:2%;width:100%;">
+  <img alt="distribution" style="width:100%;padding-top:0px;" border="5" data-src="images/nodes.png">
+</div>
+
 
 ---
 
 
-<h2>Projektarbeit</h2>
-<!--<div class="fragment fade-in" data-fragment-index="1" style="background-color:rgba(255, 255, 255, 0.5);height:300px;width:100%;z-index:2;"></div>-->
+<h2>Map Stencil Skeleton</h2>
 
-<div align="left" style="width:50%;float:left;">
-  <div>
-  <ul>
-    <li style="padding-top:2%;">Benchmarks analysieren für Skelette</li>
-    <ul>
-      <li style="padding-top:2%;">Komplexe Probleme</li>
-      <li style="padding-top:2%;">Praxisrelevant</li>
-      <li style="padding-top:2%;">Viele unabhängige Berechnungen</li>
-    </ul>
-  </ul>
-</div>
-<div>
-  <ul>
-  <li style="padding-top:2%;">Kategorien </li>
+<div style="float:left;padding-top:7%;width:50%;">
 <ul>
-  <li style="padding-top:2%;">Heuristiken - varrierende Komplexität</li>
-  <li style="padding-top:2%;">Numerical solution of PDEs</li>
-  <li style="padding-top:2%;">BLAS - Varianten zu Matrix Multiplikation</li>
-  <li style="padding-top:2%;">Clustering</li>
-  <li style="padding-top:2%;">Dynamische Programmierung</li>
-  <li style="padding-top:2%;">Lösung linearer Gleichungssysteme (Solvers)</li>
+  <li style="padding-top:2%;">Element wird berechnet auf Basis der umliegenden Werte</li>
+  <li style="padding-top:2%;">Image Processing, Jacobi Solver, Game of Life </li>
+  <li style="padding-top:2%;">Alte Werte notwendig</li>
+
 </ul>
 </div>
-</div>
-<div class="fragment" data-fragment-index="2" align="left" style="width:45%;float:left;padding-left:2%"><br><br><br><br>
-  <ul style="list-style:none;font-size:130%">
-    <li style="padding-top:2%;">&rArr; Meta Heuristiken &rarr; Map/Reduce</li>
-    <li style="padding-top:2%;">&rArr; PDE &rarr; MapStencil</li>
-    <li style="padding-top:2%;">?</li>
+  <div style="float:left;padding-top:2%;padding-left:2%;width:45%;">
+    <img alt="distribution" style="width:65%;padding-top:0px;" border="5" data-src="images/stencil-1.png">
 
-  </ul>
+</div>
+
+---
+
+<h2>Map Stencil Skeleton</h2>
+
+
+  <div style="float:left;padding-top:2%;width:100%;">
+    <img alt="distribution" style="width:80%;padding-top:0px;" border="5" data-src="images/MMStencil.png">
+
+</div>
+
+---
+
+<h2>Parallele Programme für heterogene Systeme</h2>
+
+<div style="float:left;padding-top:15%;width:45%;">
+<ul>
+  <li style="padding-top:2%;">Jacobi Solver </li>
+  <li style="padding-top:2%;">CPU braucht wesentlich länger</li>
+  <li style="padding-top:2%;">Beispiel baut nur auf MapStencil auf</li>
+
+</ul>
+</div>
+  <div style="float:left;padding-top:2%;width:45%;">
+  <img alt="distribution" style="width:100%;padding-top:0px;" border="5" data-src="images/Percentage.png">
+</div>
+
+---
+
+
+<h2>Laufzeiten Jacobi Solver</h2>
+
+  <div style="float:left;padding-top:2%;width:100%;">
+  <img alt="distribution" style="width:100%;padding-top:0px;" border="5" data-src="images/GM_Jacobi2.png">
+</div>
+
+---
+
+<h2>Laufzeiten Jacobi Solver</h2>
+
+  <div style="float:left;width:100%;">
+  <img alt="distribution" style="width:100%;padding-top:0px;" border="5" data-src="images/runtimesgmjacobi.png">
+</div>
+
+---
+
+
+<h2>Laufzeiten Game of Life</h2>
+
+  <div style="float:left;width:100%;">
+  <img alt="distribution" style="width:100%;padding-top:0px;" border="5" data-src="images/runtimegmgol.png">
+</div>
+
+---
+
+
+<h2>Nutzung des Shared Memorys</h2>
+
+<div style="float:left;padding-top:7%;width:40%;">
+<ul>
+  <li style="padding-top:2%;">Neutrale Werte (nv) </li>
+  <li style="padding-top:2%;">Oft mehr Blöcke </li>
+  <li style="padding-top:2%;">Shared memory ist nicht permanent</li>
+
+</ul></div>
+  <div style="float:left;padding-top:2%;width:60%;">
+  <img alt="distribution" style="width:100%;padding-top:0px;" border="5" data-src="images/SM.png">
+</div>
+
+---
+
+<h2>Nutzung des Shared Memorys - Jacobi Solver</h2>
+  <div style="float:left;padding-top:0%;width:100%;">
+  <img alt="distribution" style="width:90%;padding-top:0px;" border="5" data-src="images/SM2.png">
+</div>
+
+---
+
+<h2>Nutzung des Shared Memorys - Gaussian Blur</h2>
+
+  <div style="float:left;padding-top:0%;width:100%;">
+  <img alt="distribution" style="width:90%;padding-top:0px;" border="5" data-src="images/Gaussian_blur.png">
 </div>

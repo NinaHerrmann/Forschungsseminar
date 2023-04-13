@@ -1,0 +1,44 @@
+
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{matrix,fit}
+\begin{document}
+	
+	\tikzset{
+		table nodes/.style={
+			rectangle,
+			draw=black,
+			align=center,
+			minimum height=7mm,
+			text depth=0.5ex,
+			text height=2ex,
+			inner xsep=0pt,
+			outer sep=0pt
+		},      
+		table/.style={
+			matrix of nodes,
+			row sep=-\pgflinewidth,
+			column sep=-\pgflinewidth,
+			nodes={
+				table nodes
+			},
+			execute at empty cell={\node[draw=none]{};}
+		}
+	}
+	\begin{tikzpicture}
+	
+	\matrix (first) [table,text width=7mm,name=table]
+	{
+		0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
+	%	A   & B & C & D\\
+	%	E   &   &   & F\\
+	};
+	\node[draw, minimum width=21mm,minimum height=8mm, align=left] at (-1.73, 0.8) {GPU 0};
+	\node[draw, minimum width=21mm,minimum height=8mm, align=left] at (0.35, 0.8) {GPU 1};
+	\node[draw, minimum width=21mm,minimum height=8mm, align=left] at (2.45, 0.8) {GPU 2};
+	\node[draw, minimum width=21mm,minimum height=8mm, align=left] at (4.55, 0.8) {GPU 3};
+	\node[draw, minimum width=14mm,minimum height=8mm, align=left] at (-4.9, 0.8) {CPU 0};	
+	\node[draw, minimum width=14mm,minimum height=8mm, align=left] at (-3.5, 0.8) {CPU 1};
+	
+	\end{tikzpicture}
+\end{document}

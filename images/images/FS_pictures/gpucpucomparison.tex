@@ -1,0 +1,151 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{amsmath,bm,times}
+\usepackage{verbatim}
+\usetikzlibrary{decorations.pathmorphing,shapes}
+\newcounter{sarrow}
+\newcommand{\mx}[1]{\mathbf{\bm{#1}}} % Matrix command
+\newcommand{\vc}[1]{\mathbf{\bm{#1}}} % Vector command
+\newcommand\xrsquigarrow[1]{
+	\stepcounter{sarrow}}
+\begin{document}
+	\pagestyle{empty}
+	
+	% We need layers to draw the block diagram
+	\pgfdeclarelayer{background}
+	\pgfdeclarelayer{foreground}
+	\pgfsetlayers{background,main,foreground}
+	
+	% Define a few styles and constants
+	\tikzstyle{ALUCPU}=[draw, fill=magenta!20, minimum width=5em, 
+	text centered, minimum height=2.8em, rounded corners]
+	\tikzstyle{Control}=[draw, fill=cyan!20, minimum width=9em, 
+	minimum height=6em, rounded corners, text centered]
+	\tikzstyle{Cache} = [draw, fill=blue!20, above, minimum height=3.3em, minimum width=20em,rounded corners, text centered]
+	\tikzstyle{controlgpu}=[draw, fill=cyan!20, minimum width=1em, 
+	minimum height=0.1em, rounded corners, text centered]
+	\tikzstyle{cachegpu} = [draw, fill=blue!20, above, minimum width=1em, 
+	minimum height=0.1em,rounded corners, text centered]
+	\tikzstyle{DRAM} = [draw, minimum width=20em, fill=violet!20, 
+	minimum height=3.5em, rounded corners, text centered]
+	\tikzstyle{ALUGPU}=[draw, fill=magenta!20, minimum width=1.5em, 
+	text centered, minimum height=1.5em, rounded corners, text centered]
+	\def\blockdist{2.3}
+	\def\edgedist{2.5}
+	
+	\begin{tikzpicture}[decoration=snake]
+	% Draw the CPU
+	% Note the use of \path instead of \node at ... below. 
+	\node [draw] at (-11.9,2.4) (controlcpu) [Control] {Control};
+	\node[draw] at (-9.3,2.95) (alu1cpu) [ALUCPU] {ALU};
+	\node[draw] at (-7.4,2.95) (alu1cpu) [ALUCPU] {ALU};
+	\node[draw] at (-9.3, 1.85) (alu1cpu) [ALUCPU] {ALU};
+	\node[draw] at (-7.4,1.85) (alu1cpu) [ALUCPU] {ALU};
+	%Threads
+	\node at (-10, 0) (Cache) [Cache]{Cache};
+	
+	\node at (-10,-0.8) (dramcpu) [DRAM]{RAM};
+	\node at (-10,-2) {CPU};
+	
+	% Draw the GPU
+	% Controls and caches
+	\node [draw] at (-5.45,-0.1) (cachegpu) [cachegpu] {};
+	\node [draw] at (-5.45,0.3) (cachegpu) [controlgpu] {};
+	\node [draw] at (-5.45,0.5) (cachegpu) [cachegpu] {};
+	\node [draw] at (-5.45,0.9) (cachegpu) [controlgpu] {};
+	\node [draw] at (-5.45,1.1) (cachegpu) [cachegpu] {};
+	\node [draw] at (-5.45,1.5) (cachegpu) [controlgpu] {};
+	\node [draw] at (-5.45,1.7) (cachegpu) [cachegpu] {};
+	\node [draw] at (-5.45,2.1) (cachegpu) [controlgpu] {};
+	\node [draw] at (-5.45,2.3) (cachegpu) [cachegpu] {};
+	\node [draw] at (-5.45,2.7) (cachegpu) [controlgpu] {};
+	\node [draw] at (-5.45,2.9) (cachegpu) [cachegpu] {};
+	\node [draw] at (-5.45,3.3) (cachegpu) [controlgpu] {};
+	% First column ALUs
+	\node [draw] at (-4.9,0.18) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-4.9,0.78) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-4.9,1.38) (controlgpu) [ALUGPU] {}; 	
+	\node [draw] at (-4.9,1.98) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-4.9,2.58) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-4.9,3.18) (controlgpu) [ALUGPU] {}; 	 	 	 
+	% Second column 
+	\node [draw] at (-4.3,0.18) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-4.3,0.78) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-4.3,1.38) (controlgpu) [ALUGPU] {}; 	
+	\node [draw] at (-4.3,1.98) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-4.3,2.58) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-4.3,3.18) (controlgpu) [ALUGPU] {};
+	% Third column 
+	\node [draw] at (-3.7,0.18) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-3.7,0.78) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-3.7,1.38) (controlgpu) [ALUGPU] {}; 	
+	\node [draw] at (-3.7,1.98) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-3.7,2.58) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-3.7,3.18) (controlgpu) [ALUGPU] {};
+	% forth column 
+	\node [draw] at (-3.1,0.18) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-3.1,0.78) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-3.1,1.38) (controlgpu) [ALUGPU] {}; 	
+	\node [draw] at (-3.1,1.98) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-3.1,2.58) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-3.1,3.18) (controlgpu) [ALUGPU] {};
+	% fifth column 
+	\node [draw] at (-2.5,0.18) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-2.5,0.78) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-2.5,1.38) (controlgpu) [ALUGPU] {}; 	
+	\node [draw] at (-2.5,1.98) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-2.5,2.58) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-2.5,3.18) (controlgpu) [ALUGPU] {};
+	% sixth column 
+	\node [draw] at (-1.9,0.18) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-1.9,0.78) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-1.9,1.38) (controlgpu) [ALUGPU] {}; 	
+	\node [draw] at (-1.9,1.98) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-1.9,2.58) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-1.9,3.18) (controlgpu) [ALUGPU] {};
+	% Seventh column 
+	\node [draw] at (-1.3,0.18) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-1.3,0.78) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-1.3,1.38) (controlgpu) [ALUGPU] {}; 	
+	\node [draw] at (-1.3,1.98) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-1.3,2.58) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-1.3,3.18) (controlgpu) [ALUGPU] {};
+	% Eigth column 
+	\node [draw] at (-0.7,0.18) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-0.7,0.78) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-0.7,1.38) (controlgpu) [ALUGPU] {}; 	
+	\node [draw] at (-0.7,1.98) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-0.7,2.58) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-0.7,3.18) (controlgpu) [ALUGPU] {};
+	% Ninth column 
+	\node [draw] at (-0.1,0.18) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-0.1,0.78) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-0.1,1.38) (controlgpu) [ALUGPU] {}; 	
+	\node [draw] at (-0.1,1.98) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-0.1,2.58) (controlgpu) [ALUGPU] {};
+	\node [draw] at (-0.1,3.18) (controlgpu) [ALUGPU] {};
+	% tenth column 
+	\node [draw] at (0.5,0.18) (controlgpu) [ALUGPU] {};
+	\node [draw] at (0.5,0.78) (controlgpu) [ALUGPU] {};
+	\node [draw] at (0.5,1.38) (controlgpu) [ALUGPU] {}; 	
+	\node [draw] at (0.5,1.98) (controlgpu) [ALUGPU] {};
+	\node [draw] at (0.5,2.58) (controlgpu) [ALUGPU] {};
+	\node [draw] at (0.5,3.18) (controlgpu) [ALUGPU] {};
+	% Eleventh column 
+	\node [draw] at (1.1,0.18) (controlgpu) [ALUGPU] {};
+	\node [draw] at (1.1,0.78) (controlgpu) [ALUGPU] {};
+	\node [draw] at (1.1,1.38) (controlgpu) [ALUGPU] {}; 	
+	\node [draw] at (1.1,1.98) (controlgpu) [ALUGPU] {};
+	\node [draw] at (1.1,2.58) (controlgpu) [ALUGPU] {};
+	\node [draw] at (1.1,3.18) (controlgpu) [ALUGPU] {};
+	
+	\node at (-2.1,-0.8) (dramgpu) [DRAM]{RAM};
+	\node at (-2.1,-2) {GPU};
+	
+	
+	\end{tikzpicture}
+	
+	
+\end{document}
